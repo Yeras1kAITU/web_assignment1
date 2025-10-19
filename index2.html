@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="styles2.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-5 fw-bold">Contact Form</h1>
+
+    <form class="needs-validation mb-5" novalidate id="contactForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Enter your name" required maxlength="50">
+          <div class="form-text">Enter your full name (max 50 characters).</div>
+          <div class="invalid-feedback">Name is required.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="example@mail.com" required>
+          <div class="form-text">We'll never share your email with anyone else.</div>
+          <div class="invalid-feedback">Please provide a valid email address.</div>
+        </div>
+
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" rows="4" placeholder="Write your message here..." required maxlength="300"></textarea>
+          <div class="form-text">Max 300 characters.</div>
+          <div class="invalid-feedback">Please write your message.</div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button class="btn btn-primary mt-3" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <h2 class="text-center mb-4 fw-bold">Registration Form</h2>
+    <form class="needs-validation" novalidate id="registrationForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required maxlength="50">
+          <div class="form-text">Use your real first name.</div>
+          <div class="invalid-feedback">First name is required.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required maxlength="50">
+          <div class="form-text">Use your real last name.</div>
+          <div class="invalid-feedback">Last name is required.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="regEmail" class="form-label">Email</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="example@mail.com" required>
+          <div class="form-text">A valid email for account activation.</div>
+          <div class="invalid-feedback">Valid email required.</div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="row g-2">
+            <div class="col-12 col-md-6">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Min 6 characters" required minlength="6">
+              <div class="form-text">At least 6 characters long.</div>
+              <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password" required minlength="6">
+              <div class="form-text">Repeat your password.</div>
+              <div class="invalid-feedback">Passwords must match.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 gender-container">
+          <label class="form-label d-block">Gender</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+            <label class="form-check-label" for="other">Other</label>
+          </div>
+          <div class="invalid-feedback">Please select your gender.</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label d-block">Hobbies</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="hobbies" id="reading" value="reading">
+            <label class="form-check-label" for="reading">Reading</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="hobbies" id="sports" value="sports">
+            <label class="form-check-label" for="sports">Sports</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="hobbies" id="music" value="music">
+            <label class="form-check-label" for="music">Music</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="hobbies" id="travel" value="travel">
+            <label class="form-check-label" for="travel">Travel</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="hobbies" id="gaming" value="gaming">
+            <label class="form-check-label" for="gaming">Gaming</label>
+          </div>
+          <div class="form-text">Select at least one hobby.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <select id="country" class="form-select" required>
+            <option value="">Choose...</option>
+            <option>Kazakhstan</option>
+            <option>South Korea</option>
+            <option>Japan</option>
+            <option>China</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Germany</option>
+            <option>France</option>
+          </select>
+          <div class="form-text">Select your country.</div>
+          <div class="invalid-feedback">Please select a country.</div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button class="btn btn-primary mt-3" type="submit">Register</button>
+          <button class="btn btn-outline-light mt-3 ms-2" type="reset">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      
+      if (password && confirmPassword) {
+        confirmPassword.addEventListener('input', function() {
+          if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+            confirmPassword.classList.add('is-invalid');
+            confirmPassword.classList.remove('is-valid');
+          } else {
+            confirmPassword.setCustomValidity("");
+            confirmPassword.classList.add('is-valid');
+            confirmPassword.classList.remove('is-invalid');
+          }
+        });
+        
+        password.addEventListener('input', function() {
+          if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+            confirmPassword.classList.add('is-invalid');
+            confirmPassword.classList.remove('is-valid');
+          } else {
+            confirmPassword.setCustomValidity("");
+            confirmPassword.classList.add('is-valid');
+            confirmPassword.classList.remove('is-invalid');
+          }
+        });
+      }
+
+      function validateRadioGroup(groupName) {
+        const radios = document.querySelectorAll(`input[name="${groupName}"]`);
+        const container = radios[0].closest('.gender-container');
+        const errorMessage = container.querySelector('.invalid-feedback');
+        let isValid = false;
+        
+        radios.forEach(radio => {
+          if (radio.checked) isValid = true;
+        });
+        
+        if (isValid) {
+          radios.forEach(radio => {
+            radio.classList.remove('is-invalid');
+            radio.classList.add('is-valid');
+          });
+          errorMessage.style.display = 'none';
+        } else {
+          radios.forEach(radio => {
+            radio.classList.remove('is-valid');
+            radio.classList.add('is-invalid');
+          });
+          errorMessage.style.display = 'block';
+        }
+        
+        return isValid;
+      }
+
+      forms.forEach(form => {
+        form.addEventListener('submit', event => {
+          if (password && confirmPassword && password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+            confirmPassword.classList.add('is-invalid');
+            confirmPassword.classList.remove('is-valid');
+          }
+          
+          validateRadioGroup('gender');
+          
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          
+          form.classList.add('was-validated');
+        }, false);
+
+        form.querySelectorAll('.form-control, .form-select').forEach(input => {
+          input.addEventListener('input', function() {
+            if (this.checkValidity()) {
+              this.classList.add('is-valid');
+              this.classList.remove('is-invalid');
+            } else {
+              this.classList.add('is-invalid');
+              this.classList.remove('is-valid');
+            }
+          });
+        });
+
+        form.querySelectorAll('input[type="radio"]').forEach(radio => {
+          radio.addEventListener('change', function() {
+            validateRadioGroup(this.name);
+          });
+        });
+
+        form.addEventListener('reset', () => {
+          form.classList.remove('was-validated');
+          form.querySelectorAll('.form-control, .form-select, .form-check-input').forEach(input => {
+            input.classList.remove('is-valid', 'is-invalid');
+          });
+          const genderError = document.querySelector('.gender-container .invalid-feedback');
+          if (genderError) {
+            genderError.style.display = 'none';
+          }
+        });
+      });
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        validateRadioGroup('gender');
+      });
+    })();
+  </script>
+</body>
+</html>
