@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+    <link href="styles3.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Learning</h1>
+        <p>Interactive JavaScript Examples</p>
+    </header>
+
+    <section id="part1">
+        <h2>Part 1: Introduction to JavaScript</h2>
+        
+        <div class="task-container">
+            <h3>Task 0: First Script</h3>
+            <p>Check the browser console to see the output.</p>
+            <button id="alertBtn">Show Alert</button>
+        </div>
+        
+        <div class="task-container">
+            <h3>Task 1: Variables & Operators</h3>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h4>Variable Operations</h4>
+                    <button id="variablesBtn">Run Variable Examples</button>
+                </div>
+                <div class="flex-item">
+                    <h4>Console Output</h4>
+                    <div class="console-output" id="consoleOutput">
+                        Results will appear here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="part2">
+        <h2>Part 2: DOM Manipulation</h2>
+        
+        <div class="task-container">
+            <h3>Task 2: Changing Content</h3>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <p id="changeableText">This is the original paragraph text.</p>
+                    <button id="changeTextBtn">Change Paragraph Text</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>Task 3: Changing Styles</h3>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <div id="styleBlock" class="box">
+                        <p>Style me!</p>
+                    </div>
+                    <button id="colorBtn">Change Background Color</button>
+                    <button id="fontBtn">Change Font Size</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>Task 4: Creating & Removing Elements</h3>
+            <ul id="itemList">
+                <li>Initial item</li>
+            </ul>
+            <button id="addItemBtn">Add Item</button>
+            <button id="removeItemBtn" class="danger-btn">Remove Item</button>
+        </div>
+    </section>
+
+    <section id="part3">
+        <h2>Part 3: Events</h2>
+        
+        <div class="flex-container">
+            <div class="flex-item">
+                <div class="task-container">
+                    <h3>Task 5: Mouse Events</h3>
+                    <div id="mouseBox" class="box">
+                        <p>Hover over me!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-item">
+                <div class="task-container">
+                    <h3>Task 6: Keyboard Events</h3>
+                    <input type="text" id="keyboardInput" placeholder="Type something here...">
+                    <p>Current value: <span id="inputValue"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>Task 7: Form Validation</h3>
+            <form id="validationForm">
+                <input type="text" id="name" placeholder="Name">
+                <div id="nameError" class="error"></div>
+                
+                <input type="email" id="email" placeholder="Email">
+                <div id="emailError" class="error"></div>
+                
+                <input type="password" id="password" placeholder="Password">
+                <div id="passwordError" class="error"></div>
+                
+                <button type="submit">Submit Form</button>
+            </form>
+            <div id="formMessage"></div>
+        </div>
+    </section>
+
+    <section id="part4">
+        <h2>Part 4: To-Do List</h2>
+        
+        <div class="task-container">
+            <input type="text" id="taskInput" placeholder="Enter a new task...">
+            <button id="addTaskBtn">Add Task</button>
+            
+            <ul id="taskList">
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>JavaScript Learning Project</p>
+    </footer>
+
+    <script>
+        // Task 0: First Script
+        console.log("Name: John Doe");
+        console.log("Group: Web Development Group A");
+        
+        document.getElementById('alertBtn').addEventListener('click', function() {
+            alert("Hello, JavaScript World!");
+        });
+
+        // Task 1: Variables & Operators
+        document.getElementById('variablesBtn').addEventListener('click', function() {
+            const consoleOutput = document.getElementById('consoleOutput');
+            consoleOutput.innerHTML = '';
+            
+            // Declare variables of different data types
+            const myString = "Hello, World!";
+            const myNumber = 42;
+            const myBoolean = true;
+            const anotherNumber = 7.5;
+            
+            // Perform arithmetic operations
+            const sum = myNumber + anotherNumber;
+            const product = myNumber * anotherNumber;
+            const division = myNumber / anotherNumber;
+            const remainder = myNumber % anotherNumber;
+            
+            // Concatenate strings
+            const greeting = "Hello, " + "JavaScript!";
+            const combined = "The number is: " + myNumber;
+            
+            // Display results in the console output area
+            consoleOutput.innerHTML += `<div>String variable: "${myString}"</div>`;
+            consoleOutput.innerHTML += `<div>Number variable: ${myNumber}</div>`;
+            consoleOutput.innerHTML += `<div>Boolean variable: ${myBoolean}</div>`;
+            consoleOutput.innerHTML += `<div>Sum: ${myNumber} + ${anotherNumber} = ${sum}</div>`;
+            consoleOutput.innerHTML += `<div>Product: ${myNumber} * ${anotherNumber} = ${product}</div>`;
+            consoleOutput.innerHTML += `<div>Division: ${myNumber} / ${anotherNumber} = ${division}</div>`;
+            consoleOutput.innerHTML += `<div>Remainder: ${myNumber} % ${anotherNumber} = ${remainder}</div>`;
+            consoleOutput.innerHTML += `<div>String concatenation: "${greeting}"</div>`;
+            consoleOutput.innerHTML += `<div>Combined string: "${combined}"</div>`;
+            
+            // Also log to browser console
+            console.log("Variables & Operators Results:");
+            console.log("String:", myString);
+            console.log("Number:", myNumber);
+            console.log("Boolean:", myBoolean);
+            console.log("Sum:", sum);
+            console.log("Product:", product);
+            console.log("String Concatenation:", greeting);
+        });
+
+        // Task 2: Changing Content
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            const changeableText = document.getElementById('changeableText');
+            changeableText.textContent = "The paragraph text has been changed successfully!";
+        });
+
+        // Task 3: Changing Styles
+        const styleBlock = document.getElementById('styleBlock');
+        const colors = ['#4a9eff', '#4aff8f', '#ff4a4a', '#ffc04a', '#9e4aff'];
+        let colorIndex = 0;
+        let fontSizeIndex = 0;
+        const fontSizes = ['16px', '20px', '24px', '28px'];
+        
+        document.getElementById('colorBtn').addEventListener('click', function() {
+            colorIndex = (colorIndex + 1) % colors.length;
+            styleBlock.style.backgroundColor = colors[colorIndex];
+        });
+        
+        document.getElementById('fontBtn').addEventListener('click', function() {
+            fontSizeIndex = (fontSizeIndex + 1) % fontSizes.length;
+            styleBlock.style.fontSize = fontSizes[fontSizeIndex];
+        });
+
+        // Task 4: Creating & Removing Elements
+        document.getElementById('addItemBtn').addEventListener('click', function() {
+            const itemList = document.getElementById('itemList');
+            const newItem = document.createElement('li');
+            newItem.textContent = `Item ${itemList.children.length + 1}`;
+            itemList.appendChild(newItem);
+        });
+
+        document.getElementById('removeItemBtn').addEventListener('click', function() {
+            const itemList = document.getElementById('itemList');
+            if (itemList.children.length > 1) {
+                itemList.removeChild(itemList.lastChild);
+            }
+        });
+
+        // Task 5: Mouse Events
+        const mouseBox = document.getElementById('mouseBox');
+        const originalColor = mouseBox.style.backgroundColor;
+        
+        mouseBox.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#4aff8f';
+        });
+        
+        mouseBox.addEventListener('mouseout', function() {
+            this.style.backgroundColor = originalColor;
+        });
+
+        const keyboardInput = document.getElementById('keyboardInput');
+        
+        keyboardInput.addEventListener('keyup', function() {
+            document.getElementById('inputValue').textContent = this.value;
+        });
+
+        const validationForm = document.getElementById('validationForm');
+        
+        validationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            let isValid = true;
+            
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('formMessage').textContent = '';
+            
+            if (name === '') {
+                document.getElementById('nameError').textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                isValid = false;
+            }
+            
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                document.getElementById('formMessage').textContent = 'Form submitted successfully!';
+                document.getElementById('formMessage').className = 'success';
+            } else {
+                document.getElementById('formMessage').textContent = 'Please fix the errors above';
+                document.getElementById('formMessage').className = 'error';
+            }
+        });
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Task 8: Build a To-Do App
+        const tasks = [];
+        
+        document.getElementById('addTaskBtn').addEventListener('click', function() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+            
+            if (taskText !== '') {
+                addTask(taskText);
+                taskInput.value = '';
+            }
+        });
+        
+        document.getElementById('taskInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('addTaskBtn').click();
+            }
+        });
+        
+        function addTask(text) {
+            const task = {
+                id: Date.now(),
+                text: text,
+                completed: false
+            };
+            
+            tasks.push(task);
+            renderTasks();
+        }
+        
+        function deleteTask(id) {
+            const taskIndex = tasks.findIndex(task => task.id === id);
+            if (taskIndex !== -1) {
+                tasks.splice(taskIndex, 1);
+                renderTasks();
+            }
+        }
+        
+        function toggleTask(id) {
+            const task = tasks.find(task => task.id === id);
+            if (task) {
+                task.completed = !task.completed;
+                renderTasks();
+            }
+        }
+        
+        function renderTasks() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            tasks.forEach(task => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-item';
+                if (task.completed) {
+                    listItem.classList.add('completed');
+                }
+                
+                listItem.innerHTML = `
+                    <span onclick="toggleTask(${task.id})">${task.text}</span>
+                    <button class="danger-btn" onclick="deleteTask(${task.id})">Delete</button>
+                `;
+                
+                taskList.appendChild(listItem);
+            });
+        }
+        
+        addTask("Learn JavaScript basics");
+    </script>
+</body>
+</html>
