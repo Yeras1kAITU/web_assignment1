@@ -25,12 +25,14 @@
             <h3>Task 1: Variables & Operators</h3>
             <div class="flex-container">
                 <div class="flex-item">
-                    <h4>Variable Operations</h4>
-                    <button id="variablesBtn">Run Variable Examples</button>
+                    <h4>Create Variables</h4>
+                    <input type="number" id="num1" placeholder="Enter first number" value="10">
+                    <input type="number" id="num2" placeholder="Enter second number" value="5">
+                    <button id="calculateBtn">Calculate Operations</button>
                 </div>
                 <div class="flex-item">
-                    <h4>Console Output</h4>
-                    <div class="console-output" id="consoleOutput">
+                    <h4>Results</h4>
+                    <div class="console-output" id="resultsOutput">
                         Results will appear here
                     </div>
                 </div>
@@ -45,32 +47,33 @@
             <h3>Task 2: Changing Content</h3>
             <div class="flex-container">
                 <div class="flex-item">
-                    <p id="changeableText">This is the original paragraph text.</p>
-                    <button id="changeTextBtn">Change Paragraph Text</button>
+                    <p id="changeableText">Click the button to change this text</p>
+                    <button id="changeTextBtn">Change Text</button>
                 </div>
             </div>
         </div>
         
         <div class="task-container">
-            <h3>Task 3: Changing Styles</h3>
+            <h3>Task 3: Interactive Style Playground</h3>
             <div class="flex-container">
                 <div class="flex-item">
                     <div id="styleBlock" class="box">
                         <p>Style me!</p>
                     </div>
-                    <button id="colorBtn">Change Background Color</button>
-                    <button id="fontBtn">Change Font Size</button>
+                    <button id="colorBtn">Change Color</button>
+                    <button id="sizeBtn">Change Size</button>
+                    <button id="resetBtn">Reset</button>
                 </div>
             </div>
         </div>
         
         <div class="task-container">
-            <h3>Task 4: Creating & Removing Elements</h3>
+            <h3>Task 4: Dynamic Elements</h3>
             <ul id="itemList">
                 <li>Initial item</li>
             </ul>
             <button id="addItemBtn">Add Item</button>
-            <button id="removeItemBtn" class="danger-btn">Remove Item</button>
+            <button id="removeItemBtn" class="danger-btn">Remove Last Item</button>
         </div>
     </section>
 
@@ -132,79 +135,62 @@
 
     <script>
         // Task 0: First Script
-        console.log("Name: John Doe");
-        console.log("Group: Web Development Group A");
+        console.log("Name: Student");
+        console.log("Group: Web Development");
         
         document.getElementById('alertBtn').addEventListener('click', function() {
             alert("Hello, JavaScript World!");
         });
 
         // Task 1: Variables & Operators
-        document.getElementById('variablesBtn').addEventListener('click', function() {
-            const consoleOutput = document.getElementById('consoleOutput');
-            consoleOutput.innerHTML = '';
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
             
-            // Declare variables of different data types
-            const myString = "Hello, World!";
-            const myNumber = 42;
-            const myBoolean = true;
-            const anotherNumber = 7.5;
-            
-            // Perform arithmetic operations
-            const sum = myNumber + anotherNumber;
-            const product = myNumber * anotherNumber;
-            const division = myNumber / anotherNumber;
-            const remainder = myNumber % anotherNumber;
-            
-            // Concatenate strings
-            const greeting = "Hello, " + "JavaScript!";
-            const combined = "The number is: " + myNumber;
-            
-            // Display results in the console output area
-            consoleOutput.innerHTML += `<div>String variable: "${myString}"</div>`;
-            consoleOutput.innerHTML += `<div>Number variable: ${myNumber}</div>`;
-            consoleOutput.innerHTML += `<div>Boolean variable: ${myBoolean}</div>`;
-            consoleOutput.innerHTML += `<div>Sum: ${myNumber} + ${anotherNumber} = ${sum}</div>`;
-            consoleOutput.innerHTML += `<div>Product: ${myNumber} * ${anotherNumber} = ${product}</div>`;
-            consoleOutput.innerHTML += `<div>Division: ${myNumber} / ${anotherNumber} = ${division}</div>`;
-            consoleOutput.innerHTML += `<div>Remainder: ${myNumber} % ${anotherNumber} = ${remainder}</div>`;
-            consoleOutput.innerHTML += `<div>String concatenation: "${greeting}"</div>`;
-            consoleOutput.innerHTML += `<div>Combined string: "${combined}"</div>`;
-            
-            // Also log to browser console
-            console.log("Variables & Operators Results:");
-            console.log("String:", myString);
-            console.log("Number:", myNumber);
-            console.log("Boolean:", myBoolean);
-            console.log("Sum:", sum);
-            console.log("Product:", product);
-            console.log("String Concatenation:", greeting);
+            const results = document.getElementById('resultsOutput');
+            results.innerHTML = `
+                <div>Addition: ${num1} + ${num2} = ${num1 + num2}</div>
+                <div>Subtraction: ${num1} - ${num2} = ${num1 - num2}</div>
+                <div>Multiplication: ${num1} × ${num2} = ${num1 * num2}</div>
+                <div>Division: ${num1} ÷ ${num2} = ${num2 !== 0 ? (num1 / num2).toFixed(2) : 'Error'}</div>
+            `;
         });
 
         // Task 2: Changing Content
+        let textState = 0;
+        const textContents = [
+            "This is the first text",
+            "This is the second text"
+        ];
+        
         document.getElementById('changeTextBtn').addEventListener('click', function() {
-            const changeableText = document.getElementById('changeableText');
-            changeableText.textContent = "The paragraph text has been changed successfully!";
+            textState = 1 - textState; // Toggle between 0 and 1
+            document.getElementById('changeableText').textContent = textContents[textState];
         });
 
-        // Task 3: Changing Styles
+        // Task 3: Interactive Style Playground
         const styleBlock = document.getElementById('styleBlock');
         const colors = ['#4a9eff', '#4aff8f', '#ff4a4a', '#ffc04a', '#9e4aff'];
         let colorIndex = 0;
-        let fontSizeIndex = 0;
-        const fontSizes = ['16px', '20px', '24px', '28px'];
+        let sizeIndex = 0;
+        const sizes = ['150px', '200px', '250px'];
         
         document.getElementById('colorBtn').addEventListener('click', function() {
             colorIndex = (colorIndex + 1) % colors.length;
             styleBlock.style.backgroundColor = colors[colorIndex];
         });
         
-        document.getElementById('fontBtn').addEventListener('click', function() {
-            fontSizeIndex = (fontSizeIndex + 1) % fontSizes.length;
-            styleBlock.style.fontSize = fontSizes[fontSizeIndex];
+        document.getElementById('sizeBtn').addEventListener('click', function() {
+            sizeIndex = (sizeIndex + 1) % sizes.length;
+            styleBlock.style.width = sizes[sizeIndex];
+            styleBlock.style.height = sizes[sizeIndex];
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            styleBlock.style = '';
         });
 
-        // Task 4: Creating & Removing Elements
+        // Task 4: Dynamic Elements
         document.getElementById('addItemBtn').addEventListener('click', function() {
             const itemList = document.getElementById('itemList');
             const newItem = document.createElement('li');
@@ -221,22 +207,23 @@
 
         // Task 5: Mouse Events
         const mouseBox = document.getElementById('mouseBox');
-        const originalColor = mouseBox.style.backgroundColor;
         
         mouseBox.addEventListener('mouseover', function() {
             this.style.backgroundColor = '#4aff8f';
         });
         
         mouseBox.addEventListener('mouseout', function() {
-            this.style.backgroundColor = originalColor;
+            this.style.backgroundColor = '';
         });
 
+        // Task 6: Keyboard Events
         const keyboardInput = document.getElementById('keyboardInput');
         
         keyboardInput.addEventListener('keyup', function() {
             document.getElementById('inputValue').textContent = this.value;
         });
 
+        // Task 7: Form Validation
         const validationForm = document.getElementById('validationForm');
         
         validationForm.addEventListener('submit', function(event) {
@@ -288,7 +275,7 @@
             return emailRegex.test(email);
         }
 
-        // Task 8: Build a To-Do App
+        // Task 8: To-Do List
         const tasks = [];
         
         document.getElementById('addTaskBtn').addEventListener('click', function() {
@@ -298,12 +285,6 @@
             if (taskText !== '') {
                 addTask(taskText);
                 taskInput.value = '';
-            }
-        });
-        
-        document.getElementById('taskInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                document.getElementById('addTaskBtn').click();
             }
         });
         
@@ -354,7 +335,9 @@
             });
         }
         
+        // Initialize with example tasks
         addTask("Learn JavaScript basics");
+        addTask("Practice DOM manipulation");
     </script>
 </body>
 </html>
