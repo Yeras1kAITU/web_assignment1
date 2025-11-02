@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="styles4.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Notification -->
+    <div class="notification" id="notification">Booking confirmed!</div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img id="lightbox-image" src="" alt="Enlarged view">
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">CaptureMoments</div>
+            <div class="nav-links">
+                <a href="#gallery">Gallery</a>
+                <a href="#services">Services</a>
+                <a href="#equipment">Equipment</a>
+                <a href="#booking">Book a Session</a>
+                <a id="theme-toggle">Toggle Theme</a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 id="main-title">Capture Life's Beautiful Moments</h1>
+            <p id="hero-text">Professional photography services for weddings, portraits, and special events</p>
+            <button id="cta-button">View Portfolio</button>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Photo Gallery</h2>
+            <p>Latest photography projects</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="media\eunchae.jpg" alt="Wedding Photography">
+                </div>
+                <div class="gallery-item">
+                    <img src="media\momo.jpg" alt="Portrait Session">
+                </div>
+                <div class="gallery-item">
+                    <img src="media\winter.jpg" alt="Landscape Photography">
+                </div>
+                <div class="gallery-item">
+                    <img src="media\won.jpg" alt="Event Coverage">
+                </div>
+            </div>
+            
+            <!-- Task 2: Visibility Methods -->
+            <div class="demo-area">
+                <h3>Gallery Controls</h3>
+                <p class="visibility-demo" id="visibility-paragraph">Use these controls to manage gallery display</p>
+                <div class="btn-group">
+                    <button id="hide-btn">Hide Controls</button>
+                    <button id="show-btn">Show Controls</button>
+                    <button id="toggle-visibility">Toggle Controls</button>
+                </div>
+            </div>
+            
+            <!-- Task 3: Fade Methods -->
+            <div class="demo-area">
+                <h3>Featured Photo</h3>
+                <img src="media\sana.jpg" alt="Featured Photo" class="fade-demo-image" id="fade-image">
+                <div class="btn-group">
+                    <button id="fade-out-btn">Fade Out</button>
+                    <button id="fade-in-btn">Fade In</button>
+                    <button id="fade-toggle-btn">Fade Toggle</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Photography Services</h2>
+            <p>Capture all your special moments</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💒</div>
+                    <h3>Wedding Photography</h3>
+                    <p>Capture your special day with beautiful, timeless photos</p>
+                    <button class="service-detail">Learn More</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Portraits</h3>
+                    <p>Professional family photos that you'll cherish forever</p>
+                    <button class="service-detail">Learn More</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Event Coverage</h3>
+                    <p>Comprehensive coverage for corporate and private events</p>
+                    <button class="service-detail">Learn More</button>
+                </div>
+            </div>
+            
+            <!-- Task 4: Slide Methods -->
+            <div class="demo-area">
+                <h3>Service Details</h3>
+                <button id="toggle-panel">Toggle Service Info</button>
+                <div class="slide-panel" id="slide-panel">
+                    <p>All photography packages include professional editing, high-resolution digital images, and print release.</p>
+                    <p>Additional services: albums, prints, and custom framing available.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Equipment Section -->
+        <section id="equipment">
+            <h2>Professional Equipment</h2>
+            <p>State-of-the-art equipment for the highest quality results</p>
+            
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <h4>Canon EOS R5</h4>
+                    <p>45MP full-frame mirrorless camera with 8K video</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Sony A7IV</h4>
+                    <p>33MP full-frame hybrid camera for photos and video</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Professional Lenses</h4>
+                    <p>Wide selection of prime and zoom lenses</p>
+                </div>
+            </div>
+            
+            <!-- Task 5: Add & Remove Elements -->
+            <div class="demo-area">
+                <h3>Equipment Wishlist</h3>
+                <div class="dynamic-list">
+                    <ul id="item-list">
+                        <li>Canon RF 85mm f/1.2 Lens</li>
+                        <li>Profoto A10 Flash</li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button id="append-item">Add Item</button>
+                    <button id="prepend-item">Prepend Item</button>
+                    <button id="remove-item">Remove Last Item</button>
+                </div>
+            </div>
+            
+            <!-- Task 6: Modifying Attributes -->
+            <div class="demo-area">
+                <h3>Camera Demo</h3>
+                <img src="media\\eunchae1.jpg" alt="Camera Equipment" id="attr-image" class="fade-demo-image">
+                <p><a id="demo-link" href="https://www.canon.com">Visit Canon Website</a></p>
+                <div class="btn-group">
+                    <button id="change-image">Change Camera</button>
+                    <button id="change-link">Change Brand</button>
+                    <button id="reset-attributes">Reset</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Booking Section -->
+        <section id="booking">
+            <h2>Book a Session</h2>
+            <p>Ready to capture your special moments? Get in touch!</p>
+            
+            <!-- Task 7: Form Interaction -->
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="session-type">Session Type</label>
+                    <select id="session-type">
+                        <option value="">Select session type</option>
+                        <option value="wedding">Wedding Photography</option>
+                        <option value="portrait">Portrait Session</option>
+                        <option value="event">Event Coverage</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" placeholder="Tell us about your photography needs"></textarea>
+                </div>
+                
+                <button id="submit-form">Book Session</button>
+                
+                <!-- Live Form Output -->
+                <div class="demo-area" style="margin-top: 2rem;">
+                    <h3>Booking Summary</h3>
+                    <div id="form-preview">
+                        <p><strong>Name:</strong> <span id="name-preview">Not provided</span></p>
+                        <p><strong>Email:</strong> <span id="email-preview">Not provided</span></p>
+                        <p><strong>Session Type:</strong> <span id="session-preview">Not selected</span></p>
+                        <p><strong>Requests:</strong> <span id="message-preview">Not provided</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animations Section -->
+            <div class="demo-area">
+                <h3>Animation Demos</h3>
+                
+                <!-- Task 8: Basic Animation -->
+                <div>
+                    <h4>Camera Movement</h4>
+                    <div class="animated-box" id="basic-animation">📷</div>
+                    <button id="animate-basic">Animate Camera</button>
+                    <button id="reset-basic">Reset</button>
+                </div>
+                
+                <!-- Task 9: Sequential Animations -->
+                <div style="margin-top: 2rem;">
+                    <h4>Photo Shoot Sequence</h4>
+                    <div class="animated-box" id="sequential-animation">✨</div>
+                    <button id="animate-sequential">Start Sequence</button>
+                    <button id="reset-sequential">Reset</button>
+                </div>
+                
+                <!-- Task 10: Combined Animation -->
+                <div style="margin-top: 2rem;">
+                    <h4>Creative Effect</h4>
+                    <div class="animated-box" id="combined-animation">🎨</div>
+                    <button id="animate-combined">Apply Effect</button>
+                    <button id="reset-combined">Reset</button>
+                </div>
+            </div>
+    <script>
+        // Task 0: Setup
+        $(document).ready(function() {
+            console.log("jQuery is ready!");
+            
+            // Lightbox functionality
+            $('.gallery-item img').on('click', function() {
+                const src = $(this).attr('src');
+                $('#lightbox-image').attr('src', src);
+                $('#lightbox')
+                    .fadeIn(300)
+                    .css('display', 'flex');
+            });
+                        
+            $('#lightbox-close').on('click', function() {
+                $('#lightbox').fadeOut(300);
+            });
+            
+            // Task 1: Selectors & CSS
+            $('#cta-button').on('click', function() {
+                $('#hero-text').text('Professional Photography Services - Book Your Session Today!');
+                $('#main-title').html('Capture <span style="color:#06d6a0">Beautiful</span> Memories');
+                
+                $('.hero').css({
+                    'background': 'linear-gradient(135deg, #1e293b 0%, #0f4c75 100%)',
+                    'transition': 'all 0.5s ease'
+                });
+            });
+            
+            // Task 2: Visibility Methods
+            $('#hide-btn').on('click', function() {
+                $('#visibility-paragraph').hide(400);
+            });
+            
+            $('#show-btn').on('click', function() {
+                $('#visibility-paragraph').show(400);
+            });
+            
+            $('#toggle-visibility').on('click', function() {
+                $('#visibility-paragraph').toggle(400);
+            });
+            
+            // Task 3: Fade Methods
+            $('#fade-out-btn').on('click', function() {
+                $('#fade-image').fadeOut(1000);
+            });
+            
+            $('#fade-in-btn').on('click', function() {
+                $('#fade-image').fadeIn(1000);
+            });
+            
+            $('#fade-toggle-btn').on('click', function() {
+                $('#fade-image').fadeToggle(1000);
+            });
+            
+            // Task 4: Slide Methods
+            $('#toggle-panel').on('click', function() {
+                $('#slide-panel').slideToggle(500);
+            });
+            
+            // Task 5: Add & Remove Elements
+            let itemCount = 3;
+            const equipmentItems = ['DJI Ronin Stabilizer', 'Godox AD200 Pro Flash', 'Lowepro Pro Tactic Bag', 'SanDisk Extreme Pro Cards'];
+            
+            $('#append-item').on('click', function() {
+                if (itemCount < equipmentItems.length) {
+                    $('#item-list').append(`<li>${equipmentItems[itemCount-1]}</li>`);
+                    itemCount++;
+                }
+            });
+            
+            $('#prepend-item').on('click', function() {
+                $('#item-list').prepend(`<li>New Equipment Item</li>`);
+            });
+            
+            $('#remove-item').on('click', function() {
+                $('#item-list li:last').remove();
+                if(itemCount > 1) itemCount--;
+            });
+            
+            // Task 6: Modifying Attributes
+            let imageIndex = 0;
+            $('#change-image').on('click', function() {
+                if(imageIndex == 0){
+                    $('#attr-image').attr('src', `media\\jiheon.jpg`);
+                }
+                else{
+                    $('#attr-image').attr('src', `media\\eunchae1.jpg`);
+                }
+                imageIndex = (imageIndex - 1) * (-1);
+            });
+            
+            $('#change-link').on('click', function() {
+                $('#demo-link')
+                    .attr('href', 'https://www.sony.com')
+                    .text('Visit Sony Website');
+            });
+            
+            $('#reset-attributes').on('click', function() {
+                $('#attr-image').attr('src', 'https://picsum.photos/300/200?image=30');
+                $('#demo-link')
+                    .attr('href', 'https://www.canon.com')
+                    .text('Visit Canon Website');
+                imageIndex = 31;
+            });
+            
+            // Task 7: Form Interaction
+            $('#name').on('input', function() {
+                const name = $(this).val();
+                $('#name-preview').text(name || 'Not provided');
+            });
+            
+            $('#email').on('input', function() {
+                const email = $(this).val();
+                $('#email-preview').text(email || 'Not provided');
+            });
+            
+            $('#session-type').on('change', function() {
+                const session = $(this).val();
+                $('#session-preview').text(session ? session.charAt(0).toUpperCase() + session.slice(1) : 'Not selected');
+            });
+            
+            $('#message').on('input', function() {
+                const message = $(this).val();
+                $('#message-preview').text(message || 'Not provided');
+            });
+            
+            // Task 8: Basic Animation
+            $('#animate-basic').on('click', function() {
+                $('#basic-animation').animate({
+                    width: '200px',
+                    height: '200px',
+                    left: '100px',
+                    backgroundColor: '#06d6a0',
+                    fontSize: '2rem'
+                }, 1000);
+            });
+            
+            $('#reset-basic').on('click', function() {
+                $('#basic-animation').animate({
+                    width: '100px',
+                    height: '100px',
+                    left: '0',
+                    backgroundColor: '#3b82f6',
+                    fontSize: '1rem'
+                }, 500);
+            });
+            
+            // Task 9: Sequential Animations
+            $('#animate-sequential').on('click', function() {
+                $('#sequential-animation')
+                    .animate({ left: '200px', backgroundColor: '#f59e0b' }, 800)
+                    .animate({ top: '50px', fontSize: '2rem' }, 800)
+                    .animate({ width: '50px', height: '50px', backgroundColor: '#ef4444' }, 800)
+                    .animate({ left: '0', top: '0', width: '100px', height: '100px', backgroundColor: '#3b82f6', fontSize: '1rem' }, 800);
+            });
+            
+            $('#reset-sequential').on('click', function() {
+                $('#sequential-animation').stop().css({
+                    left: '0',
+                    top: '0',
+                    width: '100px',
+                    height: '100px',
+                    backgroundColor: '#3b82f6',
+                    fontSize: '1rem'
+                });
+            });
+            
+            // Task 10: Combined Animation
+            $('#animate-combined').on('click', function() {
+                $('#combined-animation').animate({
+                    opacity: 0.7,
+                    width: '200px',
+                    height: '200px',
+                    left: '150px',
+                    backgroundColor: '#8b5cf6',
+                    borderRadius: '50%',
+                    fontSize: '2rem'
+                }, 1500);
+            });
+            
+            $('#reset-combined').on('click', function() {
+                $('#combined-animation').animate({
+                    opacity: 1,
+                    width: '100px',
+                    height: '100px',
+                    left: '0',
+                    backgroundColor: '#3b82f6',
+                    borderRadius: '8px',
+                    fontSize: '1rem'
+                }, 800);
+            });
+            
+            // Service details
+            $('.service-detail').on('click', function() {
+                const service = $(this).closest('.service-card').find('h3').text();
+                showNotification(`More details about ${service} coming soon!`);
+            });
+            
+            // Form submission
+            $('#submit-form').on('click', function(e) {
+                e.preventDefault();
+                
+                const name = $('#name').val();
+                const email = $('#email').val();
+                const sessionType = $('#session-type').val();
+                
+                if (name && email && sessionType) {
+                    $('#name, #email, #message').val('');
+                    $('#session-type').val('');
+                    showNotification('Booking request sent successfully! We will contact you soon.');
+                } else {
+                    showNotification('Please fill in all required fields', 'error');
+                }
+            });
+            
+            // Smooth scrolling
+            $('.nav-links a').on('click', function(e) {
+                if ($(this).attr('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = $(this).attr('href');
+                    $('html, body').animate({
+                        scrollTop: $(target).offset().top - 80
+                    }, 800);
+                }
+            });
+
+            // Notification function
+            function showNotification(message, type = 'success') {
+                const notification = $('#notification');
+                notification.text(message);
+                
+                notification.css('backgroundColor', 
+                    type === 'error' ? '#ef4444' : '#10b981');
+                
+                notification.addClass('show');
+                
+                setTimeout(function() {
+                    notification.removeClass('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
